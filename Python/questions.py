@@ -47,7 +47,7 @@ elif x==y or y==z or z==x:
 else:
     print("Scalene triangle")
 =======================================================================
-# print Lenght of integer
+# print Length of integer
 a = [int(i) for i in input()]
 print(len(a)) # Method 1
 # Method 2
@@ -71,5 +71,16 @@ elif ord(a) in range(48,58):
     print(f"{a} is a Number")
 else:
     print(f"{a} is a special Character")
+=======================================================================
+# WAP to Calculate Dog Years 1) for first 2 y is equivalent to 10.5, 2) after that 1y = 4
+n=int(input("Enter the dog year: "))
+if n<=2:
+    print("Dog year is: ",n*10.5)
+elif n>2:
+    year=(n-2)*4+21
+    print(f"Dog year is: {year}")
+# Method 2
+n = int(input())
+print(((n-2)*4 + 2*10.5) if n>=2 else(n*10.5))
 =======================================================================
 '''
