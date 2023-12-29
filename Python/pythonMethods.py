@@ -46,13 +46,30 @@ a=input().split("1")
 print(a)
 print(len(max(a)))
 ======================================================================
-# create hollow box using hash
+# create hollow box of hashes
 n=int(input())
 for i in range(n):
     if (i==0 or i==n-1):
         print(n*"# ")
     else:
         print("# "+"  "*(n-2)+" #")
+======================================================================
+# format() (To format the output
+# Area of the circle
+
+pi=3.14
+r=12.5
+area = pi*r**2
+
+print("Area :",area)
+import math
+area1 = math.pi*r**2
+print("Area1 :{:.2f}".format(area1))  # that means the value in the variable (area1) will be stored in the :.2f telling that we want to print only 2 values after the decimal point.
+print("Area of the circle with radius {} is : {:.4f}".format(r,area1))  # Here the r will be stored in the {} and the (area1) will be stored in the :.4f
+print(math.pi)
+                   
+a,b=100,200
+print("sum of {} + {} = {}".format(a,b,(a+b)))
 ======================================================================
 """
 

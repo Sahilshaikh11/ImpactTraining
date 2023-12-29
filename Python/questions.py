@@ -83,4 +83,39 @@ elif n>2:
 n = int(input())
 print(((n-2)*4 + 2*10.5) if n>=2 else(n*10.5))
 =======================================================================
+# WAP to print %age of vowels in a string
+b=[]
+a=input()
+for i in a:
+    if i in "AEIOUaeiou":
+        b.append(i)
+c=(len(b)/len(a))*100
+print(f"{c}%")
+=======================================================================
+# WAP that returns TRUE if the binary string can be rearranged to alternate 01 strings else FALSE
+n=input()
+a=[]
+b=[]
+for i in n:
+    if i==0:
+        a.append(i)
+    elif i==1:
+        b.append(i)
+if len(a)%2==0 and len(b)%2==0:
+    print("yes")
+else:
+    print("No")
+# Method 2
+s = input()
+ctzero,ctone = 0,0
+for i in s:
+    if i == '0':
+        ctzero += 1
+    else:
+        ctone += 1
+if ctzero == ctone or ctzero - 1 == ctone or ctone - 1 == ctzero:
+    print("yes")
+else:
+    print("no")
+=======================================================================
 '''
