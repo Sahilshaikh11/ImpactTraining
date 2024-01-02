@@ -77,7 +77,7 @@ for i in range(n):
 
 ===================================================================================================================================================
 
-# format() (To format the output
+# format() To format the output
 # Area of the circle
 
 pi=3.14
@@ -186,4 +186,96 @@ print(a.insert(25, 100)) # at index 25 element 100 will be added, if index outof
 priny(a.pop()) # will remove last element of the list
 
 =====================================================================================================================
+
+# sort() --> to sort a list (can Modify the list), sorted() --> to sort anything (can't modify)
+li = [10,23,9,1,87,54,34]
+li.sort()
+print(sorted(li))
+print(li)
+# Reverse
+print(sorted(li, reverse = True))
+li.sort(reverse=True)
+res = list(reversed(li)) # will not modify the original list
+print(res)
+
+=====================================================================================================================
+
+# List Comprehension
+li=[i*i for i in range(11)]
+print(li)
+
+=====================================================================================================================
+
+# nested loop in List Comprehension
+n=int(input())
+li=[((i+j)*10) for i in range(1,n+1)  for j in range(1,n+1)]
+print(li)
+
+=====================================================================================================================
+
+# tuple() --> tuples are immutable
+tup = tuple() # Constructor
+tup = (29, 'python', 96.8)
+print(tup)
+a, b, c=tup # unpacking of tuples into variable
+print(a, b, c)
+# builtin fn of tuples
+.count(), .index(), max(tuple), min(tuple), sum(tuple), len(tuple)
+
+=====================================================================================================================
+
+# Set()-> It is Unordered and cant be accessed by index value as it is not stored in the contiguous manner
+'''Set is an unordered collection of values separated by commas and enclosed in {}
+Set does not contain any duplicate value, set is mutable and frozen set is immutable.
+set is not subscriptable.'''
+
+s= set()
+print(s,type(s))
+
+s={}
+print(s,type(s))
+
+s={100,200,"hai",True,1,0,False,100,20,"Hello"}
+print(s,type(s))
+
+----------------------------------------------------------
+
+'''set methods'''
+s={100,200,"hai",True,1,0,False,100,20,"Hello"}
+
+s.add(100)
+print(s)
+s.add(50)
+print(s)
+s.add(10)
+print(s)
+s.update("hai","hello")
+s.update(["good","Hope"])
+print(s)
+s.remove(200) # removes the Item ,if the value is not found gives the error
+s.discard(200) # if value not found then Does not gives the error
+
+----------------------------------------------------------
+
+[15:42, 02/01/2024] Pratik Patil PU: '''copy()'''
+x={11,22,33,44}
+y=x.copy()
+print(x)
+print(y)
+'''clear()'''
+y.clear() # Only clears the items but the object is still alive
+print(y)
+del y # this means the object or the Variable is also removed from the memory.
+
+'''difference() & difference_update() --> it'll update the var/obj after difference'''
+
+x={11,22,33,44}
+y={1,2,3,45,6}
+print("Difference x-y : ",x.difference(y) )
+print("Difference x-y :",x.difference(y) )
+x.difference_update(y)
+print(x)
+
+=====================================================================================================================
+
 """
