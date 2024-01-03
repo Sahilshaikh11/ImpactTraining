@@ -278,4 +278,133 @@ print(x)
 
 =====================================================================================================================
 
+# Union of sets
+lib1 = set(['apple', 'banana'])
+lib2 = set(['guava', 'strawberyy'])
+lib3 = lib1 | lib2
+lib3 = lib1.union(lib2)
+print(lib3)
+
+# Symmetric Difference
+lib3 = lib1 ^ lib2
+print(lib3) # will remove simlilar ele
+# difference
+lib3 = lib1 - lib2 # will subtract lib2 elements from ib1 if present
+
+# issubset and issuperset
+
+lib1=set(["Numpy","teli"])
+lib2=set(["pandas","Numpy"])
+lib3=set(["pandas"])
+issubset=lib1<=lib2
+print(issubset)
+
+issuperset=lib1>=lib2
+print(issuperset)
+issubset=lib3<=lib2
+print(issubset)
+issuperset=lib2>=lib3
+print(issuperset)
+
+# isdisjoint() and difference()
+x=frozenset([1,2,3,4,5])
+y=frozenset([3,4,5,6,7])
+
+print(x.isdisjoint(y))  # return true if the set has no  element in common
+print(x.difference(y)) #
+
+# Set comprehension
+
+square={i*i for i in range(1,6)}
+print(square)
+
+
+# Same program by set
+
+square =set()
+for i in range(1,6):
+    square.add(i*i)
+print(square)
+
+=====================================================================================================================
+
+# Dictionaries
+parul={1: "CSE", (2,): "IT", 'Mech': 10, 'CIVIL':20}
+print(parul)
+parul[5]='Aviation' # dict[<key>]=<value>
+print(parul)
+print(parul.keys()) # will print keys
+print(*parul.keys())
+print(parul.values()) # will print values
+print(*parul.values())
+print(parul.items()) # will print items of the dict
+print(*parul.items())
+for k,v in parul.items():
+    print(f"{k} --> {v}")
+
+-------------------------------------------------------------------------------    
+
+# heapq package
+parul={10: 'Ten', 100: 'Hundred',1000:'Thousand'}
+import heapq
+print(heapq.nlargest(2,parul))
+print(heapq.nsmallest(2,parul))
+
+--------------------------------------------------------------------------------
+
+# Dynamic input to dictionary
+student={}
+n=int(input("enter no. of students: "))
+for i in range(n):
+    rollNo = int(input())
+    name = input()
+    student[rollNo]=name
+    #or
+    # student.update({rollNo : name})
+print(student)  
+
+=====================================================================================================================
+
+### Python Object Oriented Programming ###
+
+'''Classes and Objects : '''
+
+
+Classes and Objects are the fundamental components of OOPs
+A class is a prototype that defines the variable and the functinos(methods) common  to all objects.
+variables(characteristics/attributes) and functionalities (actions they perform ) defined inside the class are accessed through Objects.
+
+EG:
+class -> Email
+Data Members -> properties
+Methods -> (actions) - sending email,receiving email,adding attachments.
+Objects are Instantiation of the Class
+class in python is defined using the class keyword ,followed by the class name.
+Syntax : class className(object):
+            ..............Statement
+
+
+from IPython.display import Image
+Image(filename = "C:\Users\PratikPatil\OneDrive\Desktop\amazon-png-logo-vector-1.png",width=1000,height=1000)
+
+---------------------------------------------------------------
+
+#EG :
+
+class Email:
+    recipient="tana@gmail.com" 
+    subject_line="Invitation"
+
+    def sending(self):
+        print("Email sent Successfully ")
+     
+    def attachment(self):
+        print("File attached Successfully ")   
+Email.sending(0)
+Email.attachment(1)
+print(Email.recipient)
+print(Email.subject_line)
+
+
 """
+
