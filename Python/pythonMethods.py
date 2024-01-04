@@ -405,6 +405,119 @@ Email.attachment(1)
 print(Email.recipient)
 print(Email.subject_line)
 
+--------------------------------------------------------------
+
+#EG :
+class Training:
+    college="Parul University"
+    location="Vadodara"
+    no_of_dept=100
+    tech="Python"
+
+
+    def Placement_And_Training():
+        print("Python traing Going on")
+        print("Triggered by sowbarnika")
+    
+Training.college
+Training.location
+
+------------------------------------------------------------------------
+
+ # object Creation
+objectName = className()
+objectName.methodName() # calling methods using objects
+
+class myname:
+    name=""
+
+    def my_self(self):
+        print("My name is "+self.name)
+m1,m2,m3=myname(),myname(),myname()
+m1.name,m2.name,m3.name='Shahil','Sumit','Patil'
+m1.my_self()
+m2.my_self()
+m3.my_self()
+
+-------------------------------------------------------------------------
+# Constructor
+class traing:
+    # init is a constructor funstion for initializing var
+    # when we create objects, constructors are automatically invoked(called)
+    # only class functions are called explicitly, but init methods dont
+    technology=""
+    def __init__(self, tech_name):
+        self.tech_name = tech_name
+        self.technology = tech_name
+
+t1 = traing("Python") #t1, t2 --> object of training class)
+t2 = traing("Java")
+print(t1.tech_name)
+print(t2.tech_name)
+
+------------------------------------------------------------------------
+
+# Inheritance
+
+# 1.Inheritance is a mechanism that allow a new class to inherit properties and methods of anexisting class.
+# 2.The existing class a referred to as the base class or parent class and the new class is called the derived class or child class
+# 3.This concept promotes code reusability and hepls in origanizing and structure code
+
+# Eg
+
+class Billing:
+    
+    def init(self, name, floors):
+        self.name = name
+        self.floors = floors
+
+    def display_info(self):
+        return f"{self.name} has {self.floors} floors"
+
+# Derived class or child class
+class House(Billing):
+    def init(self, name, floors, bedrooms):
+        super().init(name, floors)
+        self.bedrooms = bedrooms
+        
+    def display_info(self):
+        base_info = super().display_info()
+        return f"{base_info} it's a house with {self.bedrooms} bedrooms."
+
+b = Billing("Barath villa ", 1)
+h = House("Sasi villa", 1, 2)
+print(b.display_info())
+print(h.display_info())
+
+-----------------------------------------------------------------------------
+
+# parent class
+class bird:
+    def _init_(self):
+        print("Bird is ready")
+    
+    def whoisthis(self):
+        print("bird")
+
+    def swim(self):
+        print("Swim faster")
+
+# child class
+class penguin(bird):
+    def _init_(self):
+        # cll super() function
+        super()._init_() # super() will call parent class constructor / methods
+        print("Penguin is ready")
+
+    def whoisthis(self):
+        print("Penguin")
+
+    def run(self):
+        print("Run faster")
+
+peggy = penguin()#child class
+peggy.whoisthis()
+peggy.swim() # parent class function accessd by child class object
+peggy.run()
 
 """
-
