@@ -520,4 +520,181 @@ peggy.whoisthis()
 peggy.swim() # parent class function accessd by child class object
 peggy.run()
 
+# 1. Data abstraction in python refers to the concept of hiring the complex reality while exposing only the esential parts. It involves showing only what is necessary and relevant.
+# 2. this is often achieved through the use og abstract class and method.
+from abc import ABC, abstractmethod
+
+#Abstarct class with abstract methods
+class Television(ABC):#ABC = Abstract Class
+    def _init_(self, brand):
+        self.brand = brand
+        self.powered_on = False
+    
+    @abstractmethod
+    def turn_on(self):
+        pass
+    
+    @abstractmethod
+    def turn_off(self):
+        pass
+    
+    @abstractmethod
+    def change_channel(self,channel):
+        pass
+    
+#concrete class implementing the abstract class
+class SmartTV(Television):
+    def turn_on(self):  #turn_on is abstract func
+        self.powered_on = True
+        print(f"{self.brand} smart Tv is ON.")
+        
+    def turn_off(self):  #turn_off is abstract func
+        self.powered_on = False
+        print(f"{self.brand} smart Tv is OFF.")
+     
+    def change_channel(self,channel):  #change_channel is abstract func
+        if self.powered_on:
+            print(f"{self.brand} smart TV is now on channel {channel}.")
+        else:
+            print("Cannot change channel because TV is off.")
+
+smart_tv = SmartTV(brand = "Sony")
+smart_tv.turn_on()
+smart_tv.change_channel(5)
+smart_tv.turn_off()
+
+---------------------------------------------------------------------------
+
+def feedback(*rating):
+    for i in rating:
+        print(i, end = "")
+    print()
+    
+feedback(6)
+feedback(1,2,4,7,8,10)
+feedback(10,2,8,9,10,10,10,10,10, "good","VG","Bad")
+
+====================================================================================================================
+
+#polymorphism - single func multiple forms
+class MessagingService:
+    def send_message(self, to, message, cc=None, bcc=None):
+        '''send message.
+        Args:
+            to (str): Recepient's email address.
+            message(str): Message content.
+            cc (str or list,optional): Email address or list of addresses
+            bcc(str or list,optional): Email address or list of addresses'''
+        
+        recepient = [to]
+        if cc:
+            if isinstance(cc,list):
+                recepient.extend(cc)
+            else:
+                recepient.append(cc)
+                
+        if bcc:
+            if isinstance(bcc,list):
+                recepient.extend(bcc)
+            else:
+                recepient.append(bcc)
+            
+        print(f"Message sent to: {','.join(recepient)}\nContent: {message}")
+        
+MessagingService.send_message
+
+=========================================================================================================
+
+# Python Array
+# 1. Datatype
+# 2. Memory allocation
+# 3. Performance
+import array as arr
+# creating an array of integers
+a = arr.array('i',[1,2,3,4,5])
+print(a,id(a))
+# creating an array of floating - point numbers
+b = arr.array('f',[0.1,0.2,0.3,0.4,0.5])
+print(b) # collections of string is not possible in python arrays
+# typebyte                  # values
+# b                     Integer with size 1 byte/td
+# B                     Unsigned integer of size 1 byte
+# c                     A character with a size of 1 byte
+# i                     A signed integer with a size of 2 bytes
+# I                     the size of the unsigned integer is 2 bytes
+# f                     this is a floating point representation of size 4 bytes
+# d                     A floating point value of 8 bytes in size
+# array.itemsize Vs len()
+import array as arr
+a = arr.array('i',[11,22,33,44,55])
+print(a.itemsize) # each integer in array is 4 bytes
+print(len(a)) # len() gives total items in array ....5 elements in the array
+
+===========================================================================================================================
+
+# Basic array operations
+# Traverse - the elements are printed one by one
+# Insertion - adds elements at the specified index
+# Deletion - deletes the specified index of an element
+# Search - using an index or values it searches for an element
+# Update - this method updates for index of an element
+import array as arr
+a = arr.array('i',[11,22,33,44,55])
+a.insert(1,20) #insert insert values at particular index position
+print(a)
+a.append(100) #append insert value at last index
+print(a)
+
+===========================================================================================================================
+
+class Node(object):
+    #each node has its data and a pointer that points to next node in the Linked list
+    def _init_(self,data,next = None):
+        self.data = data
+        self.next = next
+
+    def setData(self,data): # function to set data
+        self.data = data
+
+    def getData(self): # function to get data of a particular node
+        return self.data
+    
+    def setNext(self,next): # function to set next node
+        self.next = next
+
+    def getNext(self): # function to get the next node
+        return self.next
+    
+class LinkedList(object):
+    #Defining the head of the linked list
+    def _init_(self):
+        self.head = None
+
+    def printLinkedList(self):
+        temp = self.head
+        while(temp.next):
+            print(temp.data, end = '->')
+            temp = temp.next
+        print(temp.data)
+
+    #inserting the node at the beginning 
+    def insertAtStart(self,data):
+        if self.head is None: # Empty Linked List
+            newNode = Node(data)
+            self.head = newNode
+        else:
+            newNode = Node(data)
+            newNode.next = self.head
+            self.head = newNode
+
+li = LinkedList()
+li.head = Node(1) # Create the Head node
+li.printLinkedList()
+N = int(input("How many nodes to insert"))
+for i in range(N):
+    val = int(input("Enter the value"))
+    li.insertAtStart(val)
+li.printLinkedList()
+
+==============================================================================================================
 """
