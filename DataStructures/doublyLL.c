@@ -16,7 +16,7 @@ int dispMenu();
 void dispList(NODE *);
 void addNodeKey(NODE *, NODE *);
 NODE *popList(NODE *);
-void delKey(NODE *);
+NODE *deleteNode(NODE *);
 
 
 int main()
@@ -51,7 +51,8 @@ int main()
             dispList(head);
             break;
         case 4:
-
+            head=deleteNode(head);
+            dispList(head);
             break;
         case 5:
             head = popList(head);
@@ -187,8 +188,6 @@ void addNodeKey(NODE *nn, NODE *head)
     }
 
 }
-
-
 NODE *popList(NODE *head)
 {
     while(head->next->next != NULL || head->next != NULL)
@@ -208,6 +207,50 @@ NODE *popList(NODE *head)
     return head;
 }
 
-void delKey(NODE *head){
-    
+NODE *deleteNode(NODE *head)
+{
+	NODE *temp=head;
+	int key;
+	NODE *ptr=NULL;
+	printf("\nEnter the key : ");
+	scanf("%d",&key);
+	
+	int count=0;
+	while(temp->next)
+	{
+		
+		
+		if(count==0)
+		{
+			count++;
+			if(temp->val==key)
+			{
+				head=temp->next;
+				
+				break;
+					
+			}
+			
+		}
+		else
+		{
+			ptr=temp->next;
+			
+			if(ptr->val==key)
+			{
+				temp->next=ptr->next;
+				break;
+			}
+			else
+			{
+				temp=temp->next;
+				
+			}
+			
+			
+		}
+
+
+
+	}
 }
