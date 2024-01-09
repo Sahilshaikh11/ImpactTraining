@@ -3,14 +3,14 @@
 
 struct node
 {
-  int val;
-  struct node *next;
+    int val;
+    struct node *next;
 };
 
 typedef struct node NODE;
 
 void *createNNode();
-NODE *appendList(NODE *,NODE *);
+NODE *appendList(NODE *, NODE *);
 NODE *addBegList(NODE *, NODE *);
 int dispMenu();
 void dispList(NODE *);
@@ -18,15 +18,12 @@ void addNodeKey(NODE *, NODE *);
 NODE *popList(NODE *);
 NODE *deleteNode(NODE *);
 
-
 int main()
 {
-   
-    NODE *newNode=NULL,*temp=NULL,*head=NULL;
-    int ch=0, flag=0;
-   
-   
-    while(1)
+    NODE *newNode = NULL, *temp = NULL, *head = NULL;
+    int ch = 0, flag = 0;
+
+    while (1)
     {
         ch = dispMenu();
         switch (ch)
@@ -51,7 +48,7 @@ int main()
             dispList(head);
             break;
         case 4:
-            head=deleteNode(head);
+            head = deleteNode(head);
             dispList(head);
             break;
         case 5:
@@ -74,10 +71,9 @@ int main()
 
         if (flag == 1)
             break;
-       
-    }// end of while loop
-   
-       
+
+    } // end of while loop
+
     return 0;
 }
 
@@ -89,13 +85,12 @@ void *createNNode()
 void dispList(NODE *h)
 {
     printf("\nList is\n");
-    while(h)
+    while (h)
     {
         printf("%d->", h->val);
         h = h->next;
     }
     printf("NULL\n\n");
-
 }
 
 int dispMenu()
@@ -110,7 +105,7 @@ int dispMenu()
     printf("\n6. Display List");
     printf("\n0. Exit");
     printf("\nChoice: ");
-    scanf("%d",&ch);
+    scanf("%d", &ch);
     return ch;
 }
 
@@ -118,17 +113,17 @@ NODE *appendList(NODE *nn, NODE *head)
 {
     NODE *temp = head;
     printf("\nEnter the value of New Node: ");
-    scanf("%d",&nn->val);
+    scanf("%d", &nn->val);
     nn->next = NULL;
 
-    if(temp == NULL)
+    if (temp == NULL)
     {
         head = nn;
         temp = nn;
     }
     else
     {
-        while(temp->next)
+        while (temp->next)
         {
             temp = temp->next;
         }
@@ -136,22 +131,20 @@ NODE *appendList(NODE *nn, NODE *head)
     }
 
     return head;
-
 }
 
 NODE *addBegList(NODE *nn, NODE *head)
 {
     printf("\nAdding New Node to the Begining of the list");
     printf("\nEnter the value of New Node: ");
-    scanf("%d",&nn->val);
+    scanf("%d", &nn->val);
     nn->next = NULL;
 
     nn->next = head;
     head = nn;
-   
+
     return head;
 }
-
 
 void addNodeKey(NODE *nn, NODE *head)
 {
@@ -160,10 +153,11 @@ void addNodeKey(NODE *nn, NODE *head)
     int key, flag = 0;
 
     printf("\nEnter the Key Value: ");
-    scanf("%d",&key);
-    while(temp)
+    scanf("%d", &key);
+    while (temp)
     {
-        if (temp->val == key){
+        if (temp->val == key)
+        {
             flag = 1;
             break;
         }
@@ -178,7 +172,7 @@ void addNodeKey(NODE *nn, NODE *head)
     else
     {
         printf("\nEnter the value of New Node: ");
-        scanf("%d",&nn->val);
+        scanf("%d", &nn->val);
         nn->next = NULL;
 
         nextNode = temp->next;
@@ -186,21 +180,21 @@ void addNodeKey(NODE *nn, NODE *head)
 
         nn->next = nextNode;
     }
-
 }
 NODE *popList(NODE *head)
 {
-    while(head->next->next != NULL || head->next != NULL)
+    while (head->next->next != NULL || head->next != NULL)
     {
         head = head->next;
     }
-    if (head->next == NULL){
-        printf("\nPoped element : %d\n",head->val);
+    if (head->next == NULL)
+    {
+        printf("\nPoped element : %d\n", head->val);
         head = NULL;
-       
     }
-    else{
-        printf("\nPoped element : %d\n",head->next->val);
+    else
+    {
+        printf("\nPoped element : %d\n", head->next->val);
         head->next = NULL;
     }
 
@@ -209,48 +203,39 @@ NODE *popList(NODE *head)
 
 NODE *deleteNode(NODE *head)
 {
-	NODE *temp=head;
-	int key;
-	NODE *ptr=NULL;
-	printf("\nEnter the key : ");
-	scanf("%d",&key);
-	
-	int count=0;
-	while(temp->next)
-	{
-		
-		
-		if(count==0)
-		{
-			count++;
-			if(temp->val==key)
-			{
-				head=temp->next;
-				
-				break;
-					
-			}
-			
-		}
-		else
-		{
-			ptr=temp->next;
-			
-			if(ptr->val==key)
-			{
-				temp->next=ptr->next;
-				break;
-			}
-			else
-			{
-				temp=temp->next;
-				
-			}
-			
-			
-		}
+    NODE *temp = head;
+    int key;
+    NODE *ptr = NULL;
+    printf("\nEnter the key : ");
+    scanf("%d", &key);
 
+    int count = 0;
+    while (temp->next)
+    {
 
+        if (count == 0)
+        {
+            count++;
+            if (temp->val == key)
+            {
+                head = temp->next;
 
-	}
+                break;
+            }
+        }
+        else
+        {
+            ptr = temp->next;
+
+            if (ptr->val == key)
+            {
+                temp->next = ptr->next;
+                break;
+            }
+            else
+            {
+                temp = temp->next;
+            }
+        }
+    }
 }
